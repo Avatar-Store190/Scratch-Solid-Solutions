@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scratch Solid Solutions | House Cleaning in Cape Town</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+:root{--teal:#0E7C7B;--aqua:#2EC4B6;--mint:#E6F9F6;--yellow:#FFD166;--dark:#0A2E2D;--cream:#FBFFFE}
+body{background:var(--cream);color:#1A2E2D;line-height:1.6}
+a{text-decoration:none}
+.topbar{background:var(--dark);color:#fff;padding:9px 14px;text-align:center;font-size:14px}
+.topbar b{color:var(--yellow)}
+header{position:sticky;top:0;background:#fff;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;box-shadow:0 2px 12px rgba(14,124,123,.15);z-index:20}
+.logo-box{display:flex;align-items:center;gap:9px;cursor:pointer}
+.logo-box img{height:54px;width:auto;max-width:190px;object-fit:contain}
+.logo-demo{width:54px;height:54px;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:24px;border-radius:12px;border:2px solid var(--yellow)}
+.logo-text{line-height:1}.logo-text b{color:var(--dark);font-size:16px}.logo-text span{color:var(--teal);font-size:10px;letter-spacing:1.5px;font-weight:900}
+nav{display:flex;gap:6px}
+nav button{border:none;background:var(--mint);color:var(--dark);padding:10px 12px;border-radius:999px;font-weight:800;font-size:14px;cursor:pointer}
+nav button.active{background:var(--teal);color:#fff}
+.btn{background:var(--teal);color:#fff;padding:14px 20px;border-radius:999px;font-weight:900;display:inline-block;border:none;cursor:pointer;font-size:16px;text-align:center}
+.btn-yellow{background:var(--yellow);color:#000}.btn-dark{background:var(--dark);color:#fff}.btn-green{background:#25D366;color:#fff}.btn-grey{background:#E6F9F6;color:#1A2E2D}
+.page{display:none}.page.active{display:block}
+.hero{background:linear-gradient(180deg,#0A2E2D 0%,#0E7C7B 65%,#2EC4B6 100%);color:#fff;padding:30px 16px 36px;text-align:center}
+.hero-logo{background:#fff;padding:14px 18px;border-radius:18px;display:inline-block;min-width:200px}
+.hero-logo img{max-height:76px;max-width:260px;display:block;margin:0 auto}
+.hero .badge{background:var(--yellow);color:#000;display:inline-block;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:900;margin-top:14px}
+.hero h1{font-size:36px;line-height:1.05;margin:14px 0 10px}.hero h1 span{color:var(--yellow)}
+.hero p{max-width:560px;margin:0 auto 18px;opacity:.95;font-size:17px}
+.hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.trust{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px;font-size:13px;font-weight:700}
+.trust div{background:rgba(255,255,255,.20);padding:8px 12px;border-radius:999px}
+.section{padding:28px 16px;max-width:760px;margin:0 auto}
+.section h3{font-size:26px;color:var(--dark);margin-bottom:6px}.section p.sub{color:#5A7A78;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#fff;padding:18px;border-radius:18px;border:1px solid #D6EFEA;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.card h4{color:var(--dark);margin-bottom:4px}.card p{font-size:14px;color:#4A5A59}
+.price-tag{font-weight:900;color:var(--teal);font-size:19px;margin-top:8px}
+.price-box{background:var(--mint);border:1px solid #BDEDE6;padding:14px;border-radius:12px;margin-top:12px;font-size:15px}
+.review{background:#fff;border:1px solid #D6EFEA;border-radius:16px;padding:18px;margin-bottom:12px}
+.stars{color:#0E7C7B;font-size:19px}
+input,select,textarea{width:100%;padding:14px;border-radius:12px;border:1px solid #BDEDE6;margin:6px 0 10px;font-size:16px}
+input[type=checkbox]{width:22px;height:22px;accent-color:#0E7C7B}
+label{font-size:13px;font-weight:800}
+.areas{display:flex;flex-wrap:wrap;gap:8px}.areas span{background:var(--mint);padding:7px 11px;border-radius:999px;font-size:13px;font-weight:700;color:var(--dark)}
+.gallery{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.gallery div{border-radius:14px;height:110px;display:grid;place-items:center;font-size:32px;background:var(--mint);border:1px solid #D6EFEA;overflow:hidden}
+.gallery img{width:100%;height:100%;object-fit:cover}
+footer{background:#0A2E2D;color:#fff;padding:26px 16px;text-align:center;font-size:14px}footer a{color:var(--yellow)}
+.float{position:fixed;bottom:16px;right:16px;background:#25D366;color:#fff;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-size:28px;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:30}
+.admin-box{background:#fff;border:2px solid var(--teal);border-radius:18px;padding:20px;margin:16px auto;max-width:760px}
+.admin-card{background:#E6F9F6;border:1px solid #D6EFEA;border-radius:12px;padding:12px;margin-bottom:10px}
+.small{font-size:12px;color:#5A7A78}
+.team-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.team-card{background:#fff;border:1px solid #D6EFEA;border-radius:14px;padding:14px;text-align:center}
+.team-card img{width:92px;height:92px;object-fit:cover;border-radius:50%;border:3px solid var(--aqua);background:#E6F9F6}
+.team-avatar{width:92px;height:92px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:32px;font-weight:900;margin:0 auto;border:3px solid var(--yellow)}
+.upload-preview{width:100%;max-height:150px;object-fit:contain;background:#fff;border:1px dashed #ccc;border-radius:10px;margin:6px 0}
+.toggle-box{background:var(--mint);border:2px solid #BDEDE6;border-radius:12px;padding:14px;display:flex;align-items:center;gap:10px}
+.toggle-box b{font-size:16px;color:var(--dark)}
+.before-after{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.before-after div{padding:16px;border-radius:14px;text-align:center;font-weight:800}
+.before-after .before{background:#F1F1F1;color:#777}.before-after .after{background:var(--mint);color:var(--teal);border:2px solid var(--aqua)}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.team-grid{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr 1fr}.hero h1{font-size:30px}nav button{padding:9px 9px;font-size:13px}}
+</style>
+</head>
+<body>
+
+<div id="site">
+<div class="topbar">✨ SCRATCH SOLID SOLUTIONS • ⭐ 4.3 (3 Reviews) • <b>House Cleaning • Closes 8pm</b></div>
+<header>
+  <div class="logo-box" onclick="goPage('home')"><div id="headerLogo"></div></div>
+  <nav>
+    <button id="btn-home" class="active" onclick="goPage('home')">Home</button>
+    <button id="btn-services" onclick="goPage('services')">Services</button>
+    <button id="btn-book" onclick="goPage('book')">Book</button>
+  </nav>
+</header>
+
+<!-- PAGE 1 HOME -->
+<div id="page-home" class="page active">
+<section class="hero">
+  <div class="hero-logo" id="heroLogo"></div><br>
+  <span class="badge">🧹 HOUSE CLEANING • CAPE TOWN • BOOK ONLINE</span>
+  <h1>From Scratch.<br><span>To Solid Clean.</span></h1>
+  <p>Steam-cleaned couches, fresh carpets, spotless homes. Great communication, on time, affordable pricing. That is what our clients say about us.</p>
+  <div class="hero-btns">
+    <button class="btn btn-yellow" onclick="goPage('book')">📅 Book Cleaning</button>
+    <button class="btn btn-dark" onclick="goPage('services')">🧹 View Prices</button>
+  </div>
+  <div class="trust"><div>⭐ 4.3 ★ (3)</div><div>💬 Online Estimates</div><div>🕐 Closes 8pm</div><div>✅ Affordable</div></div>
+</section>
+<section class="section">
+  <h3>Why Homes Trust Scratch Solid</h3>
+  <p class="sub">From Google reviews — real words from real clients.</p>
+  <div class="grid">
+    <div class="card"><h4>💬 Great Communication</h4><p>We reply fast, we explain clearly, no surprises.</p></div>
+    <div class="card"><h4>⏰ On Time, Every Time</h4><p>We arrive when we say we will. Your time matters.</p></div>
+    <div class="card"><h4>💰 Affordable Pricing</h4><p>Great price — mentioned in reviews. Fair for every home.</p></div>
+    <div class="card"><h4>� steam Deep Clean</h4><p>Steam cleaning for couches, carpets, mattresses. Deep, not just surface.</p></div>
+  </div>
+  <div class="before-after"><div class="before">😩 BEFORE<br>Dirty Couch<br>Dusty Carpet</div><div class="after">✨ AFTER<br>Fresh & Clean<br>Smells New</div></div>
+  <div class="price-box" id="specialHomeBox" style="display:none"><b>This Week Special:</b> <span id="specialHome"></span></div>
+</section>
+<section class="section" style="background:var(--mint);border-radius:18px">
+  <h3>Most Booked Cleans</h3>
+  <div class="gallery" id="galleryHome"></div>
+  <button class="btn" style="margin-top:14px;width:100%" onclick="goPage('services')">See All Services & Gallery →</button>
+</section>
+<section class="section">
+  <h3>What Clients Say</h3>
+  <div class="review"><div class="stars">★★★★★</div><p><b>"Great communication and on time. The pricing is affordable and I would recommend them."</b></p><p style="font-size:13px;color:#777">— Arnica Nqayi • Google Review</p></div>
+  <div class="review"><div class="stars">★★★★★</div><p><b>"Great price"</b></p><p style="font-size:13px;color:#777">— Yasmine Mazibuko • Google Review • Price assessment</p></div>
+  <button class="btn btn-grey" style="width:100%" onclick="goPage('book')">Read All Reviews & Book →</button>
+</section>
+</div>
+
+<!-- PAGE 2 SERVICES -->
+<div id="page-services" class="page">
+<section class="section">
+  <h3>Services & Prices</h3>
+  <p class="sub">Online estimates. Book online. Closes 8pm. Prices set by owner.</p>
+  <div class="grid" id="servicesGrid"></div>
+  <div class="price-box" id="specialBox" style="display:none"><b>This Week Special:</b> <span id="specialText"></span></div>
+</section>
+<section class="section" style="background:var(--mint);border-radius:18px">
+  <h3>Gallery — Our Work</h3>
+  <p class="sub">Owner can upload real before / after photos from dashboard.</p>
+  <div class="gallery" id="galleryServices"></div>
+  <p class="small" style="margin-top:10px">Couch Steam • Carpet • Mattress • House Cleaning • Deep Clean • Windows</p>
+</section>
+<section class="section">
+  <h3>Meet The Team</h3>
+  <div class="team-grid" id="teamGrid"></div>
+</section>
+</div>
+
+<!-- PAGE 3 BOOK & CONTACT -->
+<div id="page-book" class="page">
+<section class="section">
+  <form onsubmit="sendWhatsApp(event)" style="background:var(--dark);color:#fff;padding:22px;border-radius:20px">
+    <h3 style="color:#fff">Book Your Cleaning</h3>
+    <p style="font-size:14px;opacity:.9;margin-bottom:12px">Fill in 30 seconds. Goes straight to Scratch Solid on WhatsApp. Get online estimate.</p>
+    <label>Your Name</label><input id="name" required>
+    <label>Your WhatsApp Number</label><input id="clientPhone" inputmode="numeric">
+    <label>What Do You Need Cleaned?</label><select id="serviceSelect"></select>
+    <label>Your Area</label><select id="area"><option>Cape Town</option><option>Mitchells Plain</option><option>Khayelitsha</option><option>Blue Downs</option><option>Delft</option><option>Mfuleni</option><option>Other</option></select>
+    <label>Preferred Date</label><input id="date" type="date">
+    <label>Preferred Time</label><select id="time"><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option></select>
+    <label>Describe It - How Many Rooms / Couches?</label><textarea id="msg" rows="3"></textarea>
+    <button class="btn btn-yellow" style="width:100%;font-size:17px;color:#000" type="submit">Send Booking On WhatsApp →</button>
+    <p style="text-align:center;margin-top:10px;font-size:14px">Or Call: <b>069 673 5947</b></p>
+  </form>
+</section>
+<section class="section">
+  <h3>All Reviews — 4.3 Stars</h3>
+  <div class="review"><div class="stars">★★★★★</div><p><b>Great communication • On time • Affordable • Great price</b></p><p style="font-size:13px;color:#777">Top words from 3 Google reviews</p></div>
+  <div class="review"><div class="stars">★★★★★</div><p><b>"Great communication and on time. The pricing is affordable and I would recommend them."</b></p><p style="font-size:13px;color:#777">— Arnica Nqayi</p></div>
+  <div class="review"><div class="stars">★★★★★</div><p><b>"Great price"</b></p><p style="font-size:13px;color:#777">— Yasmine Mazibuko</p></div>
+</section>
+<section class="section">
+  <h3>Find Us</h3>
+  <p><b>Service Area:</b> Cape Town & Surroundings<br><b>Phone:</b> 069 673 5947<br><b>Hours:</b> Open — Closes 8pm<br><b>Service options:</b> Online estimates, Book online<br><b>How it works:</b> Send photos on WhatsApp → Get online estimate → We come and clean</p>
+  <div class="areas"><span>Cape Town</span><span>Mitchells Plain</span><span>Blue Downs</span><span>Delft</span><span>Khayelitsha</span><span>Mfuleni</span></div>
+  <br>
+  <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=Scratch+Solid+Solutions+Cape+Town" target="_blank">📍 Find On Google Maps</a>
+</section>
+</div>
+
+<footer>
+  <h3 style="color:#fff">SCRATCH SOLID SOLUTIONS</h3>
+  <p>House Cleaning Service • Online Estimates • Book Online</p>
+  <p style="margin-top:10px">📍 Cape Town<br>⭐ 4.3 on Google (3 Reviews) • 📞 069 673 5947 • Closes 8pm</p>
+  <p style="margin-top:10px"><a id="footerWhatsApp" href="#">WhatsApp Us</a> • <a id="footerCall" href="#">Call Us</a> • <a href="#admin" onclick="showAdmin()">Owner Login</a></p>
+  <p style="opacity:.6;margin-top:12px;font-size:12px">Website built by Avatar Web Store • © 2026 Scratch Solid Solutions</p>
+</footer>
+<a class="float" id="floatWhatsApp" href="#" target="_blank">💬</a>
+</div>
+
+<!-- OWNER ADMIN - CLEAN LOGIN, NO TEXT INSIDE BOXES -->
+<div id="admin" style="display:none;background:#E6F9F6;min-height:100vh;padding:16px">
+  <div class="admin-box">
+    <h2 style="color:var(--dark)">🔐 Owner Dashboard</h2>
+    <p class="small">Scratch Solid Solutions</p>
+    <div id="loginBox" style="margin-top:16px">
+      <label>Your Phone Number</label>
+      <input id="loginPhone" inputmode="numeric">
+      <label>Password</label>
+      <input id="loginPass" type="password" inputmode="numeric">
+      <button class="btn" style="width:100%" onclick="doLogin()">Login</button>
+      <p id="loginError" style="color:red;font-weight:700"></p>
+    </div>
+    <div id="dashBox" style="display:none;margin-top:16px">
+      <p><b>Welcome, Owner ✅</b> <span id="showPhone"></span></p>
+      <button class="btn btn-grey" onclick="doLogout()">Log Out</button>
+      <button class="btn btn-dark" onclick="document.getElementById('passBox').style.display='block'">Change Password</button>
+      <div id="passBox" style="display:none;margin-top:12px;background:var(--mint);padding:14px;border-radius:12px">
+        <h4>Change Password - Numbers Only</h4>
+        <label>Old Password</label><input id="oldPass" inputmode="numeric">
+        <label>New Password</label><input id="newPass" inputmode="numeric">
+        <label>Repeat New Password</label><input id="newPass2" inputmode="numeric">
+        <button class="btn" onclick="changePassword()">Save New Password</button>
+        <p id="passMsg" style="font-weight:700"></p>
+      </div>
+      <h3 style="margin-top:20px">1. Company Logo</h3>
+      <div id="currentLogoPreview"></div>
+      <label>Choose Logo Photo</label>
+      <input type="file" accept="image/*" onchange="uploadLogo(event)">
+      <button class="btn btn-grey" onclick="removeLogo()">Remove Logo - Use Demo Logo</button>
+      <h3 style="margin-top:20px">2. Your Phone / WhatsApp Number</h3>
+      <input id="editPhone">
+      <h3>3. This Week Special - Owner Controls This</h3>
+      <div class="toggle-box">
+        <input type="checkbox" id="editShowSpecial" onchange="toggleSpecialInput()">
+        <b>Show Special On Website? Tick = Show, Untick = Hide</b>
+      </div>
+      <div id="specialInputBox" style="display:none;margin-top:10px">
+        <label>Write Your Special Here (e.g. 20% Off Couch Cleaning This Week)</label>
+        <input id="editSpecial">
+      </div>
+      <p class="small">If you have NO special, just untick the box and save. Nothing will show to customers.</p>
+      <h3>4. Services & Prices</h3>
+      <div id="editServices"></div>
+      <button class="btn btn-green" onclick="addService()">+ Add Service</button>
+      <h3 style="margin-top:20px">5. Gallery Photos</h3>
+      <p class="small">Upload your real before / after cleaning photos.</p>
+      <div id="editGallery"></div>
+      <label>Add Gallery Photo</label><input type="file" accept="image/*" onchange="addGalleryPhoto(event)">
+      <h3 style="margin-top:20px">6. Your Team</h3>
+      <div id="editTeam"></div>
+      <button class="btn btn-green" onclick="addBrother()">+ Add Team Member</button>
+      <br><br>
+      <button class="btn" style="width:100%;font-size:17px" onclick="saveAll()">💾 SAVE ALL CHANGES</button>
+      <p id="saveMsg" style="color:green;font-weight:800;margin-top:8px"></p>
+      <button class="btn btn-grey" style="width:100%;margin-top:10px" onclick="showSite()">← Back To Website</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const OWNER_PHONE = "27696735947";
+const DEFAULT_SERVICES = [
+  {name:"🛋️ Couch / Sofa Steam Clean", desc:"Deep steam clean for couches. Removes dirt, stains, smells. Like in your Google photo.", price:"From R350"},
+  {name:"🧹 Full House Cleaning", desc:"Kitchen, bedrooms, bathroom, floors. Full house, spotless.", price:"From R450"},
+  {name:"� carpet Carpet Clean", desc:"Carpets deep cleaned, fresh and soft again.", price:"From R300"},
+  {name:"🛏️ Mattress Deep Clean", desc:"Mattress steam clean. Dust, stains, allergens gone.", price:"From R300"},
+  {name:"✨ Deep Clean / Move-In Clean", desc:"Empty house, after moving, after building. Full deep clean.", price:"From R600"},
+  {name:"🪟 Windows & Extra", desc:"Windows, walls, oven, fridge. Add to any clean.", price:"From R150"}
+];
+const DEFAULT_TEAM = [
+  {name:"Owner", role:"Owner & Head Cleaner", phone:"", photo:""},
+  {name:"Team Member 2", role:"Cleaner", phone:"", photo:""},
+  {name:"Team Member 3", role:"Cleaner", phone:"", photo:""}
+];
+const DEFAULT_GALLERY = ["🛋️","🧹","✨","� carpet","🛏️","🧽"];
+function getData(){
+  let d = JSON.parse(localStorage.getItem('scratch_v1')||'null');
+  if(!d){ d={phone:OWNER_PHONE, services:DEFAULT_SERVICES, team:DEFAULT_TEAM, gallery:DEFAULT_GALLERY, special:"", showSpecial:false, password:OWNER_PHONE.replace('27','0'), logo:""}; localStorage.setItem('scratch_v1', JSON.stringify(d)); }
+  return d;
+}
+function saveData(d){ localStorage.setItem('scratch_v1', JSON.stringify(d)); }
+function toggleSpecialInput(){ document.getElementById('specialInputBox').style.display = document.getElementById('editShowSpecial').checked ? 'block' : 'none'; }
+function logoHTML(big){
+  let d=getData();
+  if(d.logo){ return `<img src="${d.logo}" alt="Logo" style="${big?'max-height:76px;max-width:260px':'height:54px;max-width:190px'}">`; }
+  return big ? `<div style="font-size:24px;font-weight:900;color:var(--dark)">SCRATCH SOLID<br><span style="font-size:16px;color:var(--teal)">SOLUTIONS</span><br><span style="font-size:10px;color:#888">HOUSE CLEANING • CAPE TOWN</span></div>` : `<div style="display:flex;align-items:center;gap:9px"><div class="logo-demo">🧹</div><div class="logo-text"><b>SCRATCH SOLID</b><br><span>SOLUTIONS</span></div></div>`;
+}
+function goPage(p){
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('btn-'+p).classList.add('active');
+  window.scrollTo(0,0);
+}
+function galleryHTML(){
+  let d=getData();
+  return d.gallery.map(g=>{
+    if(g.startsWith('data:')) return `<div><img src="${g}"></div>`;
+    return `<div>${g}</div>`;
+  }).join('');
+}
+function renderSite(){
+  let d=getData();
+  let wa="https://wa.me/"+d.phone+"?text="+encodeURIComponent("Hi Scratch Solid Solutions, I need house cleaning in Cape Town");
+  document.getElementById('headerLogo').innerHTML=logoHTML(false);
+  document.getElementById('heroLogo').innerHTML=logoHTML(true);
+  document.getElementById('footerWhatsApp').href=wa;
+  document.getElementById('floatWhatsApp').href=wa;
+  document.getElementById('footerCall').href="tel:+"+d.phone;
+  let show = d.showSpecial && d.special && d.special.trim() !== "";
+  document.getElementById('specialHomeBox').style.display = show ? 'block' : 'none';
+  document.getElementById('specialBox').style.display = show ? 'block' : 'none';
+  document.getElementById('specialText').textContent=d.special;
+  document.getElementById('specialHome').textContent=d.special;
+  let grid=document.getElementById('servicesGrid'); let sel=document.getElementById('serviceSelect');
+  grid.innerHTML=""; sel.innerHTML="";
+  d.services.forEach(s=>{ grid.innerHTML+=`<div class="card"><h4>${s.name}</h4><p>${s.desc}</p><div class="price-tag">${s.price}</div><button class="btn" style="margin-top:10px;padding:10px 16px;font-size:14px" onclick="goPage('book')">Book This →</button></div>`; sel.innerHTML+=`<option>${s.name} - ${s.price}</option>`; });
+  document.getElementById('galleryHome').innerHTML=galleryHTML();
+  document.getElementById('galleryServices').innerHTML=galleryHTML();
+  let tg=document.getElementById('teamGrid'); tg.innerHTML="";
+  d.team.forEach(m=>{
+    let img = m.photo ? `<img src="${m.photo}">` : `<div class="team-avatar">${m.name.charAt(0)}</div>`;
+    let btn = m.phone ? `<a href="https://wa.me/${m.phone}" target="_blank" style="display:inline-block;margin-top:8px;background:#25D366;color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700">WhatsApp</a>` : `<span style="font-size:12px;color:#999">No WhatsApp yet</span>`;
+    tg.innerHTML+=`<div class="team-card">${img}<h4 style="margin-top:8px;color:var(--dark)">${m.name}</h4><p style="font-size:13px;color:#666">${m.role}</p>${btn}</div>`;
+  });
+}
+function sendWhatsApp(e){ e.preventDefault(); let d=getData(); let text="Hi Scratch Solid Solutions! I'm "+document.getElementById('name').value+" ("+document.getElementById('clientPhone').value+"). I want to book: "+document.getElementById('serviceSelect').value+" in "+document.getElementById('area').value+" on "+document.getElementById('date').value+" at "+document.getElementById('time').value+". Details: "+document.getElementById('msg').value; window.open("https://wa.me/"+d.phone+"?text="+encodeURIComponent(text),"_blank"); }
+function showAdmin(){ document.getElementById('site').style.display='none'; document.getElementById('admin').style.display='block'; window.scrollTo(0,0); if(localStorage.getItem('scratch_logged')==='yes'){ showDash(); } }
+function showSite(){ document.getElementById('admin').style.display='none'; document.getElementById('site').style.display='block'; renderSite(); }
+function doLogin(){ let d=getData(); let phone=document.getElementById('loginPhone').value.replace(/\s/g,''); let pass=document.getElementById('loginPass').value.replace(/\s/g,''); if((phone===d.phone.replace('27','0')||phone===d.phone)&&pass===d.password){ localStorage.setItem('scratch_logged','yes'); showDash(); } else { document.getElementById('loginError').textContent="Wrong number or password."; } }
+function showDash(){ let d=getData(); document.getElementById('loginBox').style.display='none'; document.getElementById('dashBox').style.display='block'; document.getElementById('showPhone').textContent=d.phone; document.getElementById('editPhone').value=d.phone; document.getElementById('editSpecial').value=d.special || ""; document.getElementById('editShowSpecial').checked = !!d.showSpecial; toggleSpecialInput(); document.getElementById('currentLogoPreview').innerHTML = d.logo ? `<img src="${d.logo}" class="upload-preview">` : `<p class="small">Currently using DEMO logo. Upload yours below.</p>`; renderEditServices(); renderEditTeam(); renderEditGallery(); }
+function renderEditServices(){ let d=getData(); let box=document.getElementById('editServices'); box.innerHTML=""; d.services.forEach((s,i)=>{ box.innerHTML+=`<div class="admin-card"><label>Service ${i+1} Name</label><input class="srv" value="${s.name}"><label>Description</label><input class="srv" value="${s.desc}"><label>Price</label><input class="srv" value="${s.price}"><button class="btn btn-grey" onclick="deleteService(${i})">X Delete</button></div>`; }); }
+function renderEditTeam(){ let d=getData(); let box=document.getElementById('editTeam'); box.innerHTML=""; d.team.forEach((m,i)=>{ box.innerHTML+=`<div class="admin-card"><label>Team ${i+1} - Name</label><input class="team" value="${m.name}"><label>Job / Role</label><input class="team" value="${m.role}"><label>Their WhatsApp (with 27)</label><input class="team" value="${m.phone}"><label>Their Photo</label>${m.photo?`<img src="${m.photo}" class="upload-preview">`:``}<input type="file" accept="image/*" onchange="uploadBrotherPhoto(event,${i})"><button class="btn btn-grey" onclick="deleteBrother(${i})">X Remove</button></div>`; }); }
+function renderEditGallery(){ let d=getData(); let box=document.getElementById('editGallery'); box.innerHTML=""; d.gallery.forEach((g,i)=>{ let preview = g.startsWith('data:') ? `<img src="${g}" class="upload-preview">` : `<div style="font-size:32px;text-align:center">${g}</div>`; box.innerHTML+=`<div class="admin-card">${preview}<button class="btn btn-grey" onclick="deleteGallery(${i})">X Delete Photo</button></div>`; }); }
+function addService(){ let d=getData(); d.services.push({name:"🧹 New Service",desc:"Describe it",price:"From R0"}); saveData(d); renderEditServices(); }
+function deleteService(i){ if(!confirm("Delete this service?")) return; let d=getData(); d.services.splice(i,1); saveData(d); renderEditServices(); }
+function addBrother(){ let d=getData(); d.team.push({name:"New Member",role:"Cleaner",phone:"",photo:""}); saveData(d); renderEditTeam(); }
+function deleteBrother(i){ if(!confirm("Remove this member?")) return; let d=getData(); d.team.splice(i,1); saveData(d); renderEditTeam(); }
+function addGalleryPhoto(e){ let f=e.target.files[0]; if(!f) return; let r=new FileReader(); r.onload=function(){ let d=getData(); d.gallery.push(r.result); saveData(d); renderEditGallery(); renderSite(); }; r.readAsDataURL(f); }
+function deleteGallery(i){ let d=getData(); d.gallery.splice(i,1); saveData(d); renderEditGallery(); renderSite(); }
+function uploadLogo(e){ let f=e.target.files[0]; if(!f) return; let r=new FileReader(); r.onload=function(){ let d=getData(); d.logo=r.result; saveData(d); document.getElementById('currentLogoPreview').innerHTML=`<img src="${d.logo}" class="upload-preview">`; renderSite(); alert("Logo uploaded!"); }; r.readAsDataURL(f); }
+function removeLogo(){ let d=getData(); d.logo=""; saveData(d); document.getElementById('currentLogoPreview').innerHTML=`<p class="small">Demo logo restored.</p>`; renderSite(); }
+function uploadBrotherPhoto(e,i){ let f=e.target.files[0]; if(!f) return; let r=new FileReader(); r.onload=function(){ let d=getData(); d.team[i].photo=r.result; saveData(d); renderEditTeam(); renderSite(); }; r.readAsDataURL(f); }
+function saveAll(){ let d=getData(); d.phone=document.getElementById('editPhone').value.replace(/\s/g,'').replace(/^\+/,''); d.special=document.getElementById('editSpecial').value; d.showSpecial=document.getElementById('editShowSpecial').checked; let srvInputs=document.querySelectorAll('.srv'); let ns=[]; for(let k=0;k<srvInputs.length;k+=3){ ns.push({name:srvInputs[k].value,desc:srvInputs[k+1].value,price:srvInputs[k+2].value}); } d.services=ns; let teamInputs=document.querySelectorAll('.team'); let nt=[]; for(let k=0;k<teamInputs.length;k+=3){ let idx=k/3; nt.push({name:teamInputs[k].value,role:teamInputs[k+1].value,phone:teamInputs[k+2].value,photo:d.team[idx]?d.team[idx].photo:""}); } d.team=nt; saveData(d); document.getElementById('saveMsg').textContent="Saved! Website updated."; renderSite(); }
+function changePassword(){ let d=getData(); let o=document.getElementById('oldPass').value.trim(); let n=document.getElementById('newPass').value.trim(); let n2=document.getElementById('newPass2').value.trim(); if(o!==d.password){ document.getElementById('passMsg').style.color='red'; document.getElementById('passMsg').textContent="Old password wrong."; return; } if(!/^[0-9]+$/.test(n)){ document.getElementById('passMsg').style.color='red'; document.getElementById('passMsg').textContent="Numbers only."; return; } if(n!==n2){ document.getElementById('passMsg').style.color='red'; document.getElementById('passMsg').textContent="Passwords do not match."; return; } d.password=n; saveData(d); document.getElementById('passMsg').style.color='green'; document.getElementById('passMsg').textContent="Password changed!"; }
+function doLogout(){ localStorage.removeItem('scratch_logged'); location.reload(); }
+if(location.hash==="#admin"){ showAdmin(); }
+renderSite();
+</script>
+</body>
+</html>
